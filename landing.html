@@ -1,0 +1,151 @@
+<!--Airline page-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ParkSmart | Graphs</title>
+	<!--META-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<!--FAVICON-->
+	<link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+	<!--FONTS-->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+	</style>
+	<!-- Material Design Bootstrap -->
+	<link href="assets/css/mdb.css" rel="stylesheet">
+	<link rel="stylesheet" text="text/css" href="./assets/css/bootstrap.css">
+	<style type="text/css">
+		body > .inner {
+			display: none;
+		}
+
+		body.pg-loaded > .inner {
+			display: block;
+		}
+
+		.robfont{
+			font-family: 'Roboto';
+		}
+
+		.vertical-center {
+			height:100%;
+			width:100%;
+
+			text-align: center;  /* align the inline(-block) elements horizontally */
+			font: 0/0 a;         /* remove the gap between inline(-block) elements */
+		}
+
+		.vertical-center:before {    /* create a full-height inline block pseudo=element */
+			content: " ";
+			display: inline-block;
+			vertical-align: middle;    /* vertical alignment of the inline element */
+			height: 100%;
+		}
+
+		.vertical-center > .container {
+			max-width: 100%;
+
+			display: inline-block;
+			vertical-align: middle;  /* vertical alignment of the inline element */
+			/* reset the font property */
+			font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		.parallax1 {
+			/* Create the parallax scrolling effect */
+			opacity: 0.8;
+			position: relative;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* The image used */
+			background-image: url('./src/airplane.gif');
+
+			/* Full height */
+			height: 100%; 
+		}
+		/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+		@media only screen and (max-device-width: 1024px) {
+			.parallax {
+				background-attachment: scroll;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="vertical-center">
+		<i><h1 class="robfont" style="font-size: 48px; color: black;">ParkSmart</h1></i>
+	</div><br>
+	<div class="container container-fluid">
+<br><br>
+	<div class="container container-fluid">
+		<!--Bar graph 1-->
+		<!--Money vs Places in the airport-->
+		<h3>Parking Hours</h3>
+		<canvas id="barChart"></canvas><hr>
+
+	<!--SCRIPTS-->
+	<!-- JQuery -->
+	<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="./assets/js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="assets/js/mdb.min.js"></script>
+	<script type="text/javascript">
+		//bar
+		var bar1 = 4000.67;
+		var bar2 = 2100.00;
+		var bar3 = 1096.32;
+		var bar4 = 3060.56;
+		var bar5 = 3154.45;
+		var bar6 = 944.90;
+		var bar21 = 205;
+		var bar22 = 849;
+		var bar23 = 354;
+		var bar24 = 789;
+		var bar25 = 1012;
+		var bar26 = 145;
+		var ctxB = document.getElementById("barChart").getContext('2d');
+		var myBarChart = new Chart(ctxB, {
+			type: 'bar',
+			data: {
+				labels: ["9:00AM", "10:00AM", "11:00AM", "12:00PM", "1:00PM", "2:00PM"],
+				datasets: [{
+					label: 'Most Occupied Hours in West Garage',
+					data: [bar1, bar2, bar3, bar4, bar5],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			optionss: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+</html>
